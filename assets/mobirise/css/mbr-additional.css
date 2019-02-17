@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i);
+/* @import url("https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet"); */
 
 
 
@@ -7,6 +7,7 @@
 body {
   font-style: normal;
   line-height: 1.5;
+  font-family: 'Open Sans', sans-serif!important;
 }
 .mbr-section-title {
   font-style: normal;
@@ -148,8 +149,8 @@ body {
 }
 .btn-primary,
 .btn-primary:active {
-  background-color: #149dcc !important;
-  border-color: #149dcc !important;
+  background-color: #499306 !important;
+  border-color: #499306 !important;
   color: #ffffff !important;
 }
 .btn-primary:hover,
@@ -168,23 +169,23 @@ body {
 }
 .btn-secondary,
 .btn-secondary:active {
-  background-color: #ff3366 !important;
-  border-color: #ff3366 !important;
-  color: #ffffff !important;
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #499306 !important;
 }
 .btn-secondary:hover,
 .btn-secondary:focus,
 .btn-secondary.focus,
 .btn-secondary.active {
   color: #ffffff !important;
-  background-color: #e50039 !important;
-  border-color: #e50039 !important;
+  background-color: #499306 !important;
+  border-color: #499306 !important;
 }
 .btn-secondary.disabled,
 .btn-secondary:disabled {
   color: #ffffff !important;
-  background-color: #e50039 !important;
-  border-color: #e50039 !important;
+  background-color: #499306 !important;
+  border-color: #499306 !important;
 }
 .btn-info,
 .btn-info:active {
@@ -208,16 +209,16 @@ body {
 }
 .btn-success,
 .btn-success:active {
-  background-color: #f7ed4a !important;
-  border-color: #f7ed4a !important;
-  color: #3f3c03 !important;
+  background-color: #499306 !important;
+  border-color: #499306 !important;
+  color: #ffffff !important;
 }
 .btn-success:hover,
 .btn-success:focus,
 .btn-success.focus,
 .btn-success.active {
   color: #3f3c03 !important;
-  background-color: #eadd0a !important;
+  background-color: #499306 !important;
   border-color: #eadd0a !important;
 }
 .btn-success.disabled,
@@ -1696,9 +1697,9 @@ body {
   }
 }
 .cid-rifsjAbTxx {
-  padding-top: 90px;
+  padding-top: 20px;
   padding-bottom: 90px;
-  background-image: url("../../../assets/images/background4.jpg");
+  background-image: url("../../../assets/images/slide3.jpg");
 }
 .cid-rifsjAbTxx h4 {
   font-weight: 500;
@@ -1713,7 +1714,7 @@ body {
 .cid-rifsjAbTxx .card-img {
   border-radius: 0;
   padding: 2rem 2rem 0 2rem;
-  background-color: #149dcc;
+  background-color: #499306;
 }
 .cid-rifsjAbTxx .card-img span {
   font-size: 100px;
@@ -1721,8 +1722,8 @@ body {
 }
 .cid-rifsjAbTxx .card-box {
   padding-bottom: 2rem;
-  background-color: #149dcc;
-  background: linear-gradient(#149dcc, transparent);
+  background-color: #499306;
+  background: linear-gradient(#499306, transparent);
 }
 .cid-rifsjAbTxx .card-box .card-title {
   margin: 0;
@@ -1741,7 +1742,7 @@ body {
 }
 .cid-rifsLQDEV6 {
   padding-top: 90px;
-  padding-bottom: 90px;
+  padding-bottom: 60px;
   background-color: #ffffff;
 }
 .cid-rifsLQDEV6 .mbr-slider .carousel-control {
@@ -1804,7 +1805,7 @@ body {
 .cid-rifAPkn1nU {
   padding-top: 60px;
   padding-bottom: 60px;
-  background-image: url("../../../assets/images/background3.jpg");
+  background-image: url("../../../assets/images/slide3.jpg");
 }
 .cid-rifAPkn1nU .testimonials-container {
   margin: 0 auto;
@@ -1849,8 +1850,8 @@ body {
 .cid-rifAo80zIO {
   padding-top: 90px;
   padding-bottom: 90px;
-  background-color: #55b4d4;
-  background: linear-gradient(#55b4d4, #efefef);
+  background-color: #499306;
+  background: linear-gradient(#499306, #09210a);
 }
 .cid-rifAo80zIO .carousel-control {
   background: #000;
@@ -1870,9 +1871,9 @@ body {
   text-align: center;
 }
 .cid-rifAo80zIO .carousel-item .wrap-img img {
-  max-height: 150px;
+  max-height: 80px;
   width: auto;
-  max-width: 100%;
+  max-width: 50%;
 }
 .cid-rifAo80zIO .carousel-controls {
   display: flex;
@@ -4206,8 +4207,8 @@ body {
   background: linear-gradient(to left, #554346, #45505b) !important;
 }
 .cid-rifwyaCmtX {
-  padding-top: 90px;
-  padding-bottom: 90px;
+  padding-top: 0px;
+  padding-bottom: 60px;
   background-color: #ffffff;
 }
 .cid-rifwyaCmtX .mbr-section-subtitle {
