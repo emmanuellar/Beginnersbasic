@@ -129,9 +129,9 @@
 .mbri-delivery:before {
   content: "\e922";
 }
-.mbri-desktop:before {
+/* .mbri-desktop:before {
   content: "\e923";
-}
+} */
 .mbri-devices:before {
   content: "\e924";
 }
@@ -327,9 +327,9 @@
 .mbri-refresh:before {
   content: "\e964";
 }
-.mbri-responsive:before {
+/* .mbri-responsive:before {
   content: "\e965";
-}
+} */
 .mbri-right:before {
   content: "\e966";
 }
@@ -411,9 +411,9 @@
 .mbri-touch-swipe:before {
   content: "\e980";
 }
-.mbri-touch:before {
+/* .mbri-touch:before {
   content: "\e981";
-}
+} */
 .mbri-trash:before {
   content: "\e982";
 }

@@ -170,7 +170,7 @@ body {
 .btn-secondary,
 .btn-secondary:active {
   background-color: #ffffff !important;
-  border-color: #ffffff !important;
+  border-color: #499306 !important;
   color: #499306 !important;
 }
 .btn-secondary:hover,
@@ -1703,10 +1703,10 @@ body {
 }
 .cid-rifsjAbTxx h4 {
   font-weight: 500;
-  color: #ffffff;
+  color: #499306;
 }
 .cid-rifsjAbTxx p {
-  color: #ffffff;
+  color: #499306;
 }
 .cid-rifsjAbTxx .card {
   margin-bottom: 2rem;
@@ -1722,8 +1722,8 @@ body {
 }
 .cid-rifsjAbTxx .card-box {
   padding-bottom: 2rem;
-  background-color: #499306;
-  background: linear-gradient(#499306, transparent);
+  background-color: #fff;
+  /* background: linear-gradient(#499306, transparent); */
 }
 .cid-rifsjAbTxx .card-box .card-title {
   margin: 0;
@@ -2924,7 +2924,7 @@ body {
 .cid-rifunlAhQP {
   padding-top: 90px;
   padding-bottom: 90px;
-  background-image: url("../../../assets/images/background4.jpg");
+  background-image: url("../../../assets/images/slide2.jpg");
 }
 .cid-rifuk8DF7L {
   padding-top: 90px;
@@ -4302,3 +4302,5 @@ body {
 .cid-rifwBfkRo3 .google-map[data-state="loading"] [data-state-details] {
   display: none;
 }
+/* Custom footer */
+.
