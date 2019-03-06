@@ -9,7 +9,7 @@
     }
 
     function onPlayerReady(event) {
-        if ($(event.target).closest('.mbr-slider').hasClass('in')) {
+        if ($(event.target).closest('.bbs-slider').hasClass('in')) {
             event.target.playVideo();
         }
     }
@@ -32,7 +32,7 @@
                 jQuery(document).trigger("YTAPIReady"));
 
             $('.video-slide').each(function(i) {
-                $('.video-container').eq(i).append('<div id ="mbr-video-' + i + '" class="mbr-background-video" data-video-num="' + i + '"></div>')
+                $('.video-container').eq(i).append('<div id ="bbs-video-' + i + '" class="bbs-background-video" data-video-num="' + i + '"></div>')
                     .append('<div class="item-overlay"></div>');
                 $(this).attr('data-video-num', i);
 
@@ -44,11 +44,11 @@
                         loop: true
                     };
 
-                    var player = new Vimeo.Player('mbr-video-' + i, options);
+                    var player = new Vimeo.Player('bbs-video-' + i, options);
 
                     player.playVideo = Vimeo.play;
                 } else {
-                    var player = new YT.Player('mbr-video-' + i, {
+                    var player = new YT.Player('bbs-video-' + i, {
                         height: '100%',
                         width: '100%',
                         videoId: getVideoId($(this).attr('data-video-url')),
@@ -69,9 +69,9 @@
     function updateMasonry(event){
         var $section = $(event.target);
         if (typeof $.fn.masonry !== 'undefined') {
-            $section.outerFind('.mbr-gallery').each(function() {
-                var $msnr = $(this).find('.mbr-gallery-row').masonry({
-                    itemSelector: '.mbr-gallery-item:not(.mbr-gallery-item__hided)',
+            $section.outerFind('.bbs-gallery').each(function() {
+                var $msnr = $(this).find('.bbs-gallery-row').masonry({
+                    itemSelector: '.bbs-gallery-item:not(.bbs-gallery-item__hided)',
                     percentPosition: true,
                     horizontalOrder: true
                 });
@@ -94,19 +94,19 @@
     /* Masonry Grid */
     $(document).on('add.cards', function(event) {
         var $section = $(event.target),
-            allItem = $section.find('.mbr-gallery-filter-all');
+            allItem = $section.find('.bbs-gallery-filter-all');
         var filterList = [];
-        $section.on('click', '.mbr-gallery-filter li > .btn', function(e) {
+        $section.on('click', '.bbs-gallery-filter li > .btn', function(e) {
             e.preventDefault();
             var $li = $(this).closest('li');
 
             $li.parent().find('a').removeClass('active');
             $(this).addClass('active');
 
-            var $mas = $li.closest('section').find('.mbr-gallery-row');
+            var $mas = $li.closest('section').find('.bbs-gallery-row');
             var filter = $(this).html().trim();
 
-            $section.find('.mbr-gallery-item').each(function(i, el) {
+            $section.find('.bbs-gallery-item').each(function(i, el) {
                 var $elem = $(this);
                 var tagsAttr = $elem.attr('data-tags');
                 var tags = tagsAttr.split(',');
@@ -115,28 +115,28 @@
                     return el.trim();
                 });
 
-                if ($.inArray(filter, tagsTrimmed) === -1 && !$li.hasClass('mbr-gallery-filter-all')) {
-                    $elem.addClass('mbr-gallery-item__hided');
+                if ($.inArray(filter, tagsTrimmed) === -1 && !$li.hasClass('bbs-gallery-filter-all')) {
+                    $elem.addClass('bbs-gallery-item__hided');
 
                     setTimeout(function() {
                         $elem.css('left', '300px');
                     }, 200);
                 } else {
-                    $elem.removeClass('mbr-gallery-item__hided');
+                    $elem.removeClass('bbs-gallery-item__hided');
                 }
             });
 
             setTimeout(function() {
-                $mas.closest('.mbr-gallery-row').trigger('filter');
+                $mas.closest('.bbs-gallery-row').trigger('filter');
             }, 50);
         });
     })
     $(document).on('add.cards changeParameter.cards changeButtonColor.cards', function(event) {
         var $section = $(event.target),
-            allItem = $section.find('.mbr-gallery-filter-all');
+            allItem = $section.find('.bbs-gallery-filter-all');
         var filterList = [];
 
-        $section.find('.mbr-gallery-item').each(function(el) {
+        $section.find('.bbs-gallery-item').each(function(el) {
             var tagsAttr = ($(this).attr('data-tags') || "").trim();
             var tagsList = tagsAttr.split(',');
 
@@ -148,22 +148,22 @@
             });
         });
 
-        if ($section.find('.mbr-gallery-filter').length > 0 && $(event.target).find('.mbr-gallery-filter').hasClass('gallery-filter-active') && !$(event.target).find('.mbr-gallery-filter').hasClass('mbr-shop-filter')) {
+        if ($section.find('.bbs-gallery-filter').length > 0 && $(event.target).find('.bbs-gallery-filter').hasClass('gallery-filter-active') && !$(event.target).find('.bbs-gallery-filter').hasClass('bbs-shop-filter')) {
             var filterHtml = '';
 
             var classAttr = allItem.find('a').attr('class') || '';
             classAttr = classAttr.replace(/(^|\s)active(\s|$)/, ' ').trim();
 
-            $section.find('.mbr-gallery-filter ul li:not(li:eq(0))').remove();
+            $section.find('.bbs-gallery-filter ul li:not(li:eq(0))').remove();
 
             filterList.map(function(el) {
                 filterHtml += '<li><a class="' + classAttr + '" href>' + el + '</a></li>';
             });
-            $section.find('.mbr-gallery-filter ul').append(filterHtml);
+            $section.find('.bbs-gallery-filter ul').append(filterHtml);
 
         } else {
-            $section.find('.mbr-gallery-item__hided').removeClass('mbr-gallery-item__hided');
-            $section.find('.mbr-gallery-row').trigger('filter');
+            $section.find('.bbs-gallery-item__hided').removeClass('bbs-gallery-item__hided');
+            $section.find('.bbs-gallery-row').trigger('filter');
         }
 
         updateMasonry(event);
@@ -173,7 +173,7 @@
         updateMasonry(event);
     });
 
-    $('.mbr-gallery-item').on('click', 'a', function(e) {
+    $('.bbs-gallery-item').on('click', 'a', function(e) {
         e.stopPropagation();
     });
 
@@ -187,7 +187,7 @@
 
     /* Lightbox Fit */
     function fitLightbox() {
-        var $lightbox = $('.mbr-gallery .modal');
+        var $lightbox = $('.bbs-gallery .modal');
         if (!$lightbox.length) {
             return;
         }
@@ -230,15 +230,15 @@
     }
 
     /* pause/start video on different events and fit lightbox */
-    var $window = $(document).find('.mbr-gallery');
+    var $window = $(document).find('.bbs-gallery');
 
     $window.on('show.bs.modal', function(e) {
         clearTimeout(timeout2);
 
         var timeout2 = setTimeout(function() {
             var index = $(e.relatedTarget).parent().index();
-            var slide = $(e.target).find('.carousel-item').eq(index).find('.mbr-background-video');
-            $(e.target).find('.carousel-item .mbr-background-video');
+            var slide = $(e.target).find('.carousel-item').eq(index).find('.bbs-background-video');
+            $(e.target).find('.carousel-item .bbs-background-video');
             if (slide.length > 0) {
                 var player = players[+slide.attr('data-video-num')];
                 player.playVideo ? player.playVideo() : player.play();
@@ -249,7 +249,7 @@
     });
 
     $window.on('slide.bs.carousel', function(e) {
-        var ytv = $(e.target).find('.carousel-item.active .mbr-background-video');
+        var ytv = $(e.target).find('.carousel-item.active .bbs-background-video');
         if (ytv.length > 0) {
             var player = players[+ytv.attr('data-video-num')];
             player.pauseVideo ? player.pauseVideo() : player.pause();
@@ -259,7 +259,7 @@
     $(window).on('resize load', fitLBtimeout);
 
     $window.on('slid.bs.carousel', function(e) {
-        var ytv = $(e.target).find('.carousel-item.active .mbr-background-video');
+        var ytv = $(e.target).find('.carousel-item.active .bbs-background-video');
 
         if (ytv.length > 0) {
             var player = players[+ytv.attr('data-video-num')];

@@ -145,12 +145,12 @@
 
         $('html').addClass($.isMobile() ? 'mobile' : 'desktop');
 
-        // .mbr-navbar--sticky
+        // .bbs-navbar--sticky
         $(window).scroll(function() {
-            $('.mbr-navbar--sticky').each(function() {
+            $('.bbs-navbar--sticky').each(function() {
                 var method = $(window).scrollTop() > 10 ? 'addClass' : 'removeClass';
-                $(this)[method]('mbr-navbar--stuck')
-                    .not('.mbr-navbar--open')[method]('mbr-navbar--short');
+                $(this)[method]('bbs-navbar--stuck')
+                    .not('.bbs-navbar--open')[method]('bbs-navbar--short');
             });
         });
 
@@ -162,28 +162,28 @@
                     var windowHeight = $(window).height();
                     if ($.inArray(windowHeight, deviceSize) < 0)
                         windowHeight = deviceSize[$(window).width() > windowHeight ? 1 : 0];
-                    $('.mbr-section--full-height').css('height', windowHeight + 'px');
+                    $('.bbs-section--full-height').css('height', windowHeight + 'px');
                 });
             })($(window).width(), $(window).height());
-        } else if (!isSupportViewportUnits) { // fallback for .mbr-section--full-height
+        } else if (!isSupportViewportUnits) { // fallback for .bbs-section--full-height
             $(window).smartresize(function() {
-                $('.mbr-section--full-height').css('height', $(window).height() + 'px');
+                $('.bbs-section--full-height').css('height', $(window).height() + 'px');
             });
             $(document).on('add.cards', function(event) {
-                if ($('html').hasClass('mbr-site-loaded') && $(event.target).outerFind('.mbr-section--full-height').length)
+                if ($('html').hasClass('bbs-site-loaded') && $(event.target).outerFind('.bbs-section--full-height').length)
                     $(window).resize();
             });
         }
 
-        // .mbr-section--16by9 (16 by 9 blocks autoheight)
+        // .bbs-section--16by9 (16 by 9 blocks autoheight)
         function calculate16by9() {
             $(this).css('height', $(this).parent().width() * 9 / 16);
         }
         $(window).smartresize(function() {
-            $('.mbr-section--16by9').each(calculate16by9);
+            $('.bbs-section--16by9').each(calculate16by9);
         });
         $(document).on('add.cards changeParameter.cards', function(event) {
-            var enabled = $(event.target).outerFind('.mbr-section--16by9');
+            var enabled = $(event.target).outerFind('.bbs-section--16by9');
             if (enabled.length) {
                 enabled
                     .attr('data-16by9', 'true')
@@ -195,10 +195,10 @@
             }
         });
 
-        // .mbr-parallax-background
+        // .bbs-parallax-background
         function initParallax(card) {
             setTimeout(function() {
-                $(card).outerFind('.mbr-parallax-background')
+                $(card).outerFind('.bbs-parallax-background')
                     .jarallax({
                         speed: 0.6
                     })
@@ -213,7 +213,7 @@
         if ($.fn.jarallax && !$.isMobile()) {
             $(window).on('update.parallax', function(event) {
                 setTimeout(function() {
-                    var $jarallax = $('.mbr-parallax-background');
+                    var $jarallax = $('.bbs-parallax-background');
 
                     $jarallax.jarallax('coverImage');
                     $jarallax.jarallax('clipContainer');
@@ -261,7 +261,7 @@
             });
         }
 
-        // .mbr-fixed-top
+        // .bbs-fixed-top
         var fixedTopTimeout, scrollTimeout, prevScrollTop = 0,
             fixedTop = null,
             isDesktop = !$.isMobile();
@@ -297,7 +297,7 @@
                     fixedTop.fixed = false;
                     $(fixedTop.elm).removeClass('is-fixed');
                 }
-                $('.mbr-fixed-top:first').each(function() {
+                $('.bbs-fixed-top:first').each(function() {
                     fixedTop = {
                         breakPoint: $(this).offset().top + $(this).height() * 3,
                         fixed: false,
@@ -310,7 +310,7 @@
 
         // embedded videos
         $(window).smartresize(function() {
-            $('.mbr-embedded-video').each(function() {
+            $('.bbs-embedded-video').each(function() {
                 $(this).height(
                     $(this).width() *
                     parseInt($(this).attr('height') || 315) /
@@ -319,7 +319,7 @@
             });
         });
         $(document).on('add.cards', function(event) {
-            if ($('html').hasClass('mbr-site-loaded') && $(event.target).outerFind('iframe').length)
+            if ($('html').hasClass('bbs-site-loaded') && $(event.target).outerFind('iframe').length)
                 $(window).resize();
         });
 
@@ -329,7 +329,7 @@
                 var videoURL = $(this).attr('data-bg-video');
                 var parsedUrl = videoURL.match(/(http:\/\/|https:\/\/|)?(player.|www.)?(vimeo\.com|youtu(be\.com|\.be|be\.googleapis\.com))\/(video\/|embed\/|watch\?v=|v\/)?([A-Za-z0-9._%-]*)(&\S+)?/);
 
-                var $img = $('<div class="mbr-background-video-preview">')
+                var $img = $('<div class="bbs-background-video-preview">')
                     .hide()
                     .css({
                         backgroundSize: 'cover',
@@ -369,7 +369,7 @@
                         }).attr('src', previewURL);
 
                         if ($.fn.YTPlayer && !isBuilder && !$.isMobile()) {
-                            $('> *:eq(1)', this).before('<div class="mbr-background-video"></div>').prev()
+                            $('> *:eq(1)', this).before('<div class="bbs-background-video"></div>').prev()
                                 .YTPlayer({
                                     videoURL: parsedUrl[6],
                                     containment: 'self',
@@ -397,7 +397,7 @@
                         request = null;
 
                         if ($.fn.vimeo_player && !isBuilder && !$.isMobile()) {
-                            $('> *:eq(1)', this).before('<div class="mbr-background-video"></div>').prev()
+                            $('> *:eq(1)', this).before('<div class="bbs-background-video"></div>').prev()
                                 .vimeo_player({
                                     videoURL: videoURL,
                                     containment: 'self',
@@ -425,14 +425,14 @@
             if (paramName === 'bg') {
                 switch (key) {
                     case 'type':
-                        $(event.target).find('.mbr-background-video-preview').remove();
+                        $(event.target).find('.bbs-background-video-preview').remove();
                         if (value.type === 'video') {
                             videoParser(event.target);
                         }
                         break;
                     case 'value':
                         if (value.type === 'video') {
-                            $(event.target).find('.mbr-background-video-preview').remove();
+                            $(event.target).find('.bbs-background-video-preview').remove();
                             videoParser(event.target);
                         }
                         break;
@@ -444,7 +444,7 @@
         if (!isBuilder) {
             $('body > *:not(style, script)').trigger('add.cards');
         }
-        $('html').addClass('mbr-site-loaded');
+        $('html').addClass('bbs-site-loaded');
         $(window).resize().scroll();
 
         // smooth scroll
@@ -462,7 +462,7 @@
                             $(useBody ? 'body' : target.hash).each(function() {
                                 e.preventDefault();
                                 // in css sticky navbar has height 64px
-                                // var stickyMenuHeight = $('.mbr-navbar--sticky').length ? 64 : 0;
+                                // var stickyMenuHeight = $('.bbs-navbar--sticky').length ? 64 : 0;
                                 var stickyMenuHeight = $(target).parents().hasClass('navbar-fixed-top') ? 60 : 0;
                                 var goTo = target.hash == '#bottom' ? ($(this).height() - $(window).height()) : ($(this).offset().top - stickyMenuHeight);
                                 // Disable Accordion's and Tab's scroll
@@ -483,7 +483,7 @@
         }
 
         // init the same height columns
-        $('.cols-same-height .mbr-figure').each(function() {
+        $('.cols-same-height .bbs-figure').each(function() {
             var $imageCont = $(this);
             var $img = $imageCont.children('img');
             var $cont = $imageCont.parent();
@@ -534,10 +534,10 @@
 
 
     if (!isBuilder) {
-        // .mbr-social-likes
+        // .bbs-social-likes
         if ($.fn.socialLikes) {
             $(document).on('add.cards', function(event) {
-                $(event.target).outerFind('.mbr-social-likes').on('counter.social-likes', function(event, service, counter) {
+                $(event.target).outerFind('.bbs-social-likes').on('counter.social-likes', function(event, service, counter) {
                     if (counter > 999) $('.social-likes__counter', event.target).html(Math.floor(counter / 1000) + 'k');
                 }).socialLikes({
                     initHtml: false
@@ -546,7 +546,7 @@
         }
 
         $(document).on('add.cards', function(event) {
-            if ($(event.target).hasClass('mbr-reveal')) {
+            if ($(event.target).hasClass('bbs-reveal')) {
                 $(event.target).footerReveal();
             }
         });
@@ -559,8 +559,8 @@
             } else if ($('input[name=animation]').length) {
                 $('input[name=animation]').remove();
 
-                var $animatedElements = $('p, h1, h2, h3, h4, h5, a, button, small, img, li, blockquote, .mbr-author-name, em, label, input, textarea, .input-group, .iconbox, .btn-social, .mbr-figure, .mbr-map, .mbr-testimonial .card-block, .mbr-price-value, .mbr-price-figure, .dataTable, .dataTables_info').not(function() {
-                    return $(this).parents().is('.navbar, .mbr-arrow, footer, .iconbox, .mbr-slider, .mbr-gallery, .mbr-testimonial .card-block, #cookiesdirective, .mbr-wowslider, .accordion, .tab-content, .engine, #scrollToTop');
+                var $animatedElements = $('p, h1, h2, h3, h4, h5, a, button, small, img, li, blockquote, .bbs-author-name, em, label, input, textarea, .input-group, .iconbox, .btn-social, .bbs-figure, .bbs-map, .bbs-testimonial .card-block, .bbs-price-value, .bbs-price-figure, .dataTable, .dataTables_info').not(function() {
+                    return $(this).parents().is('.navbar, .bbs-arrow, footer, .iconbox, .bbs-slider, .bbs-gallery, .bbs-testimonial .card-block, #cookiesdirective, .bbs-wowslider, .accordion, .tab-content, .engine, #scrollToTop');
                 }).addClass('hidden animated');
 
                 function getElementOffset(element) {
@@ -614,7 +614,7 @@
 
     // Scroll to Top Button
     $(document).ready(function() {
-        if ($('.mbr-arrow-up').length) {
+        if ($('.bbs-arrow-up').length) {
             var $scroller = $('#scrollToTop'),
                 $main = $('body,html'),
                 $window = $(window);
@@ -637,7 +637,7 @@
 
     // arrow down
     if (!isBuilder) {
-        $('.mbr-arrow').on('click', function(e) {
+        $('.bbs-arrow').on('click', function(e) {
             var $next = $(e.target).closest('section').next();
             if($next.hasClass('engine')){
                 $next = $next.closest('section').next();
@@ -652,7 +652,7 @@
     // add padding to the first element, if it exists
     if ($('nav.navbar').length) {
         var navHeight = $('nav.navbar').height();
-        $('.mbr-after-navbar.mbr-fullscreen').css('padding-top', navHeight + 'px');
+        $('.bbs-after-navbar.bbs-fullscreen').css('padding-top', navHeight + 'px');
     }
 
     function isIE() {
@@ -671,7 +671,7 @@
         $(document).on('add.cards', function(event) {
             var $eventTarget = $(event.target);
 
-            if ($eventTarget.hasClass('mbr-fullscreen')) {
+            if ($eventTarget.hasClass('bbs-fullscreen')) {
                 $(window).on('load resize', function() {
                     $eventTarget.css('height', 'auto');
 
@@ -681,13 +681,13 @@
                 });
             }
 
-            if ($eventTarget.hasClass('mbr-slider') || $eventTarget.hasClass('mbr-gallery')) {
+            if ($eventTarget.hasClass('bbs-slider') || $eventTarget.hasClass('bbs-gallery')) {
                 $eventTarget.find('.carousel-indicators').addClass('ie-fix').find('li').css({
                     display: 'inline-block',
                     width: '30px'
                 });
 
-                if ($eventTarget.hasClass('mbr-slider')) {
+                if ($eventTarget.hasClass('bbs-slider')) {
                     $eventTarget.find('.full-screen .slider-fullscreen-image').css('height', '1px');
                 }
             }
@@ -947,20 +947,20 @@
                 if (!$iscollapsing.hasClass('collapsing')) {
                     if ($id.indexOf('toggle') != -1){
                         if ($(this).hasClass('collapsed')) {
-                            $(this).find('span.sign').removeClass('mbri-arrow-down').addClass('mbri-arrow-up'); 
+                            $(this).find('span.sign').removeClass('bbsi-arrow-down').addClass('bbsi-arrow-up'); 
                         }
                         else{
-                            $(this).find('span.sign').removeClass('mbri-arrow-up').addClass('mbri-arrow-down'); 
+                            $(this).find('span.sign').removeClass('bbsi-arrow-up').addClass('bbsi-arrow-down'); 
                         }
                     }
                     else if ($id.indexOf('accordion')!=-1) {
                         var $accordion =  $(this).closest('.accordionStyles ');
                     
                         $accordion.children('.card').each(function() {
-                            $(this).find('span.sign').removeClass('mbri-arrow-up').addClass('mbri-arrow-down'); 
+                            $(this).find('span.sign').removeClass('bbsi-arrow-up').addClass('bbsi-arrow-down'); 
                         });
                         if ($(this).hasClass('collapsed')) {
-                            $(this).find('span.sign').removeClass('mbri-arrow-down').addClass('mbri-arrow-up'); 
+                            $(this).find('span.sign').removeClass('bbsi-arrow-down').addClass('bbsi-arrow-up'); 
                         }
                     }
                 }
@@ -972,8 +972,8 @@
         }
         
         // Fix for slider bug
-        if($('.mbr-slider.carousel').length!=0){
-            $('.mbr-slider.carousel').each(function(){
+        if($('.bbs-slider.carousel').length!=0){
+            $('.bbs-slider.carousel').each(function(){
                 var $slider = $(this),
                     controls = $slider.find('.carousel-control'),
                     indicators = $slider.find('.carousel-indicators li');

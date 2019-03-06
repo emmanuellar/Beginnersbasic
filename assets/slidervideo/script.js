@@ -100,7 +100,7 @@
                 var videoId = getVideoId($(this).attr('data-bg-video-slide'));
                 if (!videoId) return;
 
-                var $preview = $('<div class="mbr-background-video-preview"></div>').css({
+                var $preview = $('<div class="bbs-background-video-preview"></div>').css({
                     display: 'none',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center'
@@ -108,7 +108,7 @@
 
                 $('.container-slide', this).before($preview);
                 var playerName = checkPlayerName($(this).attr('data-bg-video-slide'));
-                var $overlay = $(this).find('.mbr-overlay');
+                var $overlay = $(this).find('.bbs-overlay');
 
                 if (playerName === 'youtube') {
                     getYTPreviewUrlWithBestQuality(videoId).done(function(url) {
@@ -117,7 +117,7 @@
 
                     if (isDesktop && $.fn.YTPlayer && !$(this).find('.playerBox').length) {
                         $('.container-slide', this)
-                            .before('<div class="mbr-background-video"></div>').prev()
+                            .before('<div class="bbs-background-video"></div>').prev()
                             .YTPlayer({
                                 videoURL: videoId,
                                 containment: 'self',
@@ -133,7 +133,7 @@
                         }
 
                         $(this).find('.image_wrapper img').css('opacity', '0');
-                        $(this).find('.image_wrapper .mbr-overlay').css('opacity', '0');
+                        $(this).find('.image_wrapper .bbs-overlay').css('opacity', '0');
                     }
                 } else {
                     getVimeoPreviewUrl(videoId, function(url) {
@@ -142,7 +142,7 @@
 
                     if (isDesktop && $.fn.vimeo_player && !$(this).find('.playerBox').length) {
                         $('.container-slide', this)
-                            .before('<div class="mbr-background-video"></div>').prev()
+                            .before('<div class="bbs-background-video"></div>').prev()
                             .vimeo_player({
                                 videoURL: videoId,
                                 containment: 'self',

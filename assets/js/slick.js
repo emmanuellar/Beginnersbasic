@@ -2506,10 +2506,10 @@
 
     };
 
-    Slick.prototype.unslick = function(fromBreakpoint) {
+    Slick.prototype.unslick = function(frobbseakpoint) {
 
         var _ = this;
-        _.$slider.trigger('unslick', [_, fromBreakpoint]);
+        _.$slider.trigger('unslick', [_, frobbseakpoint]);
         _.destroy();
 
     };
